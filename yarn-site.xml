@@ -70,7 +70,7 @@
   </property>
   <property>
     <name>yarn.nodemanager.resource.memory-mb</name>
-    <value>12288</value>
+    <value>13544</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
@@ -91,11 +91,8 @@
   <property>
     <name>yarn.nodemanager.resource.cpu-vcores</name>
     <value>4</value>
-    <description>
-      Number of vcores that can be allocated for containers. This is used by
-      the RM scheduler when allocating resources for containers. This is not
-      used to limit the number of physical cores used by YARN containers.
-    </description>
+    <final>false</final>
+    <source>Dataproc Cluster Properties</source>
   </property>
   <property>
     <name>yarn.resourcemanager.fs.state-store.uri</name>
@@ -108,17 +105,16 @@
   </property>
   <property>
     <name>yarn.scheduler.maximum-allocation-mb</name>
-    <value>12288</value>
+    <value>13544</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
   <property>
     <name>yarn.application.classpath</name>
-    <value>$HADOOP_CONF_DIR,
-      $HADOOP_COMMON_HOME/*,$HADOOP_COMMON_HOME/lib/*,
-      $HADOOP_HDFS_HOME/*,$HADOOP_HDFS_HOME/lib/*,
-      $HADOOP_MAPRED_HOME/*,$HADOOP_MAPRED_HOME/lib/*,
-      $HADOOP_YARN_HOME/*,$HADOOP_YARN_HOME/lib/*</value>
+    <value>$HADOOP_CONF_DIR,$HADOOP_COMMON_HOME/*,$HADOOP_COMMON_HOME/lib/*,
+    $HADOOP_HDFS_HOME/*,$HADOOP_HDFS_HOME/lib/*,$HADOOP_MAPRED_HOME/*,
+    $HADOOP_MAPRED_HOME/lib/*,$HADOOP_YARN_HOME/*,$HADOOP_YARN_HOME/lib/*,
+    /usr/local/share/google/dataproc/lib/*</value>
   </property>
   <property>
     <name>yarn.resourcemanager.recovery.enabled</name>
@@ -127,8 +123,16 @@
   </property>
   <property>
     <name>yarn.log-aggregation-enable</name>
-    <value>false</value>
+    <value>true</value>
     <description>Enable remote logs aggregation to the default FS.</description>
+  </property>
+  <property>
+    <name>yarn.nodemanager.env-whitelist</name>
+    <value>PATH,JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME,LD_LIBRARY_PATH</value>
+  </property>
+  <property>
+    <name>yarn.nm.liveness-monitor.expiry-interval-ms</name>
+    <value>15000</value>
   </property>
   <property>
     <name>yarn.resourcemanager.webapp.cross-origin.enabled</name>
@@ -157,14 +161,6 @@
   <property>
     <name>yarn.timeline-service.generic-application-history.enabled</name>
     <value>true</value>
-  </property>
-  <property>
-    <name>yarn.nm.liveness-monitor.expiry-interval-ms</name>
-    <value>600000</value>
-    <description>
-      Timeout after which the resource manager marks a node LOST. Default is 10
-      minutes.
-    </description>
   </property>
   <property>
     <name>yarn.resourcemanager.node-removal-untracked.remove-on-refresh</name>
@@ -197,6 +193,36 @@
     </description>
   </property>
   <property>
+    <name>yarn.log.server.url</name>
+    <value>http://10.11.12.111:19888/jobhistory/logs</value>
+  </property>
+  <property>
+    <name>yarn.log-aggregation.file-formats</name>
+    <value>IFile,TFile</value>
+  </property>
+  <property>
+    <name>yarn.log-aggregation.file-controller.IFile.class</name>
+    <value>org.apache.hadoop.yarn.logaggregation.filecontroller.ifile.LogAggregationIndexedFileController</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.am.max-attempts</name>
+    <value>10</value>
+    <final>false</final>
+    <source>Dataproc Cluster Properties</source>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.nodemanager-graceful-decommission-timeout-secs</name>
+    <value>86400</value>
+    <final>false</final>
+    <source>Dataproc Cluster Properties</source>
+  </property>
+  <property>
+    <name>yarn.nodemanager.address</name>
+    <value>10.11.12.111</value>
+    <final>false</final>
+    <source>Dataproc Cluster Properties</source>
+  </property>
+  <property>
     <name>yarn.timeline-service.ui-names</name>
     <value>tez</value>
   </property>
@@ -207,17 +233,5 @@
   <property>
     <name>yarn.timeline-service.ui-web-path.tez</name>
     <value>/tez-ui</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.nodemanager-graceful-decommission-timeout-secs</name>
-    <value>86400</value>
-    <final>false</final>
-    <source>Dataproc Cluster Properties</source>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.am.max-attempts</name>
-    <value>10</value>
-    <final>false</final>
-    <source>Dataproc Cluster Properties</source>
   </property>
 </configuration>
