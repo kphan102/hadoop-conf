@@ -31,7 +31,7 @@
   </property>
   <property>
     <name>fs.defaultFS</name>
-    <value>gs://dp-main-hdfs/</value>
+    <value>hdfs://druid-ingestion-cluster-m</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
