@@ -23,7 +23,7 @@
   </property>
   <property>
     <name>mapreduce.jobhistory.address</name>
-    <value>0.0.0.0</value>
+    <value>10.11.12.111</value>
     <description>MapReduce JobHistory Server IPC host:port</description>
   </property>
   <property>
