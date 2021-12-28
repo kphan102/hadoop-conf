@@ -58,6 +58,17 @@
     </description>
   </property>
   <property>
+    <name>fs.gs.metadata.cache.directory</name>
+    <value>/hadoop_gcs_connector_metadata_cache</value>
+    <description>
+      Only used if fs.gs.metadata.cache.type is FILESYSTEM_BACKED, specifies
+      the local path to use as the base path for storing mirrored GCS metadata.
+      Must be an absolute path, must be a directory, and must be fully
+      readable/writable/executable by any user running processes which use the
+      GCS connector.
+    </description>
+  </property>
+  <property>
     <name>fs.gs.impl</name>
     <value>com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem</value>
     <description>The FileSystem for gs: (GCS) uris.</description>
@@ -70,6 +81,12 @@
     </description>
   </property>
   <property>
+    <name>fs.gs.metadata.cache.enable</name>
+    <value>false</value>
+    <final>false</final>
+    <source>Dataproc Cluster Properties</source>
+  </property>
+  <property>
     <name>fs.gs.implicit.dir.infer.enable</name>
     <value>true</value>
     <description>
@@ -80,7 +97,7 @@
   </property>
   <property>
     <name>fs.gs.application.name.suffix</name>
-    <value>-dataproc zone/europe-west4-c</value>
+    <value>-dataproc</value>
     <description>
       Appended to the user-agent header for API requests to GCS to help identify
       the traffic as coming from Dataproc.
@@ -92,10 +109,17 @@
     <description>The AbstractFileSystem for gs: (GCS) uris.</description>
   </property>
   <property>
-    <name>fs.gs.metadata.cache.enable</name>
-    <value>false</value>
-    <final>false</final>
-    <source>Dataproc Cluster Properties</source>
+    <name>fs.gs.metadata.cache.type</name>
+    <value>FILESYSTEM_BACKED</value>
+    <description>
+      Specifies which implementation of DirectoryListCache to use for
+      supplementing GCS API &amp;amp;quot;list&amp;amp;quot; requests. Supported
+      implementations:       IN_MEMORY: Enforces immediate consistency within
+      same Java process.       FILESYSTEM_BACKED: Enforces consistency across
+      all cooperating processes       pointed at the same local mirror
+      directory, which may be an NFS directory       for massively-distributed
+      coordination.
+    </description>
   </property>
   <property>
     <name>fs.gs.reported.permissions</name>

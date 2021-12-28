@@ -1,19 +1,21 @@
 <?xml version="1.0" ?>
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <!--
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+      http://www.apache.org/licenses/LICENSE-2.0
 
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
-  limitations under the License. See accompanying LICENSE file.
+  limitations under the License.
 -->
-<!-- Put site-specific property overrides in this file. -->
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
   <property>
     <name>mapreduce.job.reduces</name>
@@ -23,7 +25,7 @@
   </property>
   <property>
     <name>mapreduce.jobhistory.address</name>
-    <value>0.0.0.0:10020</value>
+    <value>druid-ingestion-cluster-m:10020</value>
     <description>MapReduce JobHistory Server IPC host:port</description>
   </property>
   <property>
@@ -46,13 +48,13 @@
   </property>
   <property>
     <name>yarn.app.mapreduce.am.resource.mb</name>
-    <value>3386</value>
+    <value>3072</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
   <property>
     <name>mapreduce.map.java.opts</name>
-    <value>-Xmx2708m</value>
+    <value>-Xmx2457m</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
@@ -84,19 +86,19 @@
   </property>
   <property>
     <name>mapreduce.reduce.java.opts</name>
-    <value>-Xmx2708m</value>
+    <value>-Xmx2457m</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
   <property>
     <name>mapreduce.map.memory.mb</name>
-    <value>3386</value>
+    <value>3072</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
   <property>
     <name>mapreduce.reduce.memory.mb</name>
-    <value>3386</value>
+    <value>3072</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
@@ -140,9 +142,10 @@
   </property>
   <property>
     <name>mapreduce.jobhistory.recovery.store.class</name>
-    <value>org.apache.hadoop.mapreduce.v2.hs.HistoryServerLeveldbStateStoreService</value>
-    <final>false</final>
-    <source>Dataproc Cluster Properties</source>
+    <value>org.apache.hadoop.mapreduce.v2.hs.HistoryServerFileSystemStateStoreService</value>
+    <description>
+      Class used to store history server state for recovery.
+    </description>
   </property>
   <property>
     <name>mapreduce.job.maps</name>
@@ -152,12 +155,12 @@
   </property>
   <property>
     <name>mapreduce.jobhistory.webapp.address</name>
-    <value>0.0.0.0:19888</value>
+    <value>druid-ingestion-cluster-m:19888</value>
     <description>MapReduce JobHistory Server Web UI host:port</description>
   </property>
   <property>
     <name>yarn.app.mapreduce.am.command-opts</name>
-    <value>-Xmx2708m</value>
+    <value>-Xmx2457m</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
@@ -178,14 +181,8 @@
     <description>
       Updated file output committer algorithm in Hadoop 2.7+. Significantly
       improves commitJob times when using the Google Cloud Storage connector.
-      See https://issues.apache.org/jira/browse/MAPREDUCE-4815 for more details.
+      See https://issues.apache.org/jira/browse/MAPEDUCE-4815 for more details.
     </description>
-  </property>
-  <property>
-    <name>mapreduce.application.classpath</name>
-    <value>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/*,
-    $HADOOP_MAPRED_HOME/share/hadoop/mapreduce/lib/*,
-    /usr/local/share/google/dataproc/lib/*</value>
   </property>
   <property>
     <name>mapred.bq.project.id</name>
@@ -209,31 +206,19 @@
     </description>
   </property>
   <property>
-    <name>mapreduce.jobhistory.done-dir</name>
-    <value>gs://dataproc-temp-europe-west4-366312403477-2pg3cl6p/b8a85bfc-8bdd-414f-92a3-c135a4c75953/mapreduce-job-history/done</value>
-  </property>
-  <property>
-    <name>mapreduce.jobhistory.intermediate-done-dir</name>
-    <value>gs://dataproc-temp-europe-west4-366312403477-2pg3cl6p/b8a85bfc-8bdd-414f-92a3-c135a4c75953/mapreduce-job-history/done_intermediate</value>
-  </property>
-  <property>
-    <name>mapreduce.jobhistory.move.interval-ms</name>
-    <value>1000</value>
-  </property>
-  <property>
     <name>mapreduce.job.reduce.slowstart.completedmaps</name>
     <value>0.95</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
   <property>
-    <name>mapreduce.reduce.maxattempts</name>
+    <name>mapreduce.map.maxattempts</name>
     <value>10</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
   <property>
-    <name>mapreduce.map.maxattempts</name>
+    <name>mapreduce.reduce.maxattempts</name>
     <value>10</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>

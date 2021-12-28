@@ -185,38 +185,6 @@
     </description>
   </property>
   <property>
-    <name>yarn.scheduler.capacity.application.fail-fast</name>
-    <value>false</value>
-    <description>
-      Whether RM should fail during recovery if previous applications'
-      queue is no longer valid.
-    </description>
-  </property>
-  <property>
-    <name>yarn.scheduler.capacity.workflow-priority-mappings</name>
-    <value></value>
-    <description>
-      A list of mappings that will be used to override application priority.
-      The syntax for this list is
-      [workflowId]:[full_queue_name]:[priority][,next mapping]*       where an
-      application submitted (or mapped to) queue
-      &amp;amp;quot;full_queue_name&amp;amp;quot;       and workflowId
-      &amp;amp;quot;workflowId&amp;amp;quot; (as specified in application
-      submission       context) will be given priority
-      &amp;amp;quot;priority&amp;amp;quot;.
-    </description>
-  </property>
-  <property>
-    <name>yarn.scheduler.capacity.workflow-priority-mappings-override.enable</name>
-    <value>false</value>
-    <description>
-      If a priority mapping is present, will it override the value specified
-      by the user? This can be used by administrators to give applications a
-      priority that is different than the one specified by the user.       The
-      default is false.
-    </description>
-  </property>
-  <property>
     <name>yarn.scheduler.capacity.root.default.ordering-policy</name>
     <value>fair</value>
     <final>false</final>
