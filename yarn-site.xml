@@ -50,7 +50,6 @@
   <property>
     <name>yarn.resourcemanager.hostname</name>
     <value>10.11.12.111</value>
-    <source>Dataproc Cluster Properties</source>
   </property>
   <property>
     <name>yarn.nodemanager.vmem-check-enabled</name>
@@ -92,8 +91,11 @@
   <property>
     <name>yarn.nodemanager.resource.cpu-vcores</name>
     <value>4</value>
-    <final>false</final>
-    <source>Dataproc Cluster Properties</source>
+    <description>
+      Number of vcores that can be allocated for containers. This is used by
+      the RM scheduler when allocating resources for containers. This is not
+      used to limit the number of physical cores used by YARN containers.
+    </description>
   </property>
   <property>
     <name>yarn.resourcemanager.fs.state-store.uri</name>
