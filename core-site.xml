@@ -26,12 +26,12 @@
   </property>
   <property>
     <name>fs.default.name</name>
-    <value>hdfs://10.11.12.111</value>
+    <value>gs://dp-main-hdfs/</value>
     <description>The old FileSystem used by FsShell.</description>
   </property>
   <property>
     <name>fs.defaultFS</name>
-    <value>hdfs://10.11.12.111</value>
+    <value>gs://dp-main-hdfs/</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>

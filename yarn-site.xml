@@ -50,6 +50,7 @@
   <property>
     <name>yarn.resourcemanager.hostname</name>
     <value>10.11.12.111</value>
+    <source>Dataproc Cluster Properties</source>
   </property>
   <property>
     <name>yarn.nodemanager.vmem-check-enabled</name>

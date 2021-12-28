@@ -21,7 +21,7 @@
   </property>
   <property>
     <name>dfs.namenode.rpc-address</name>
-    <value>hdfs://druid-ingestion-cluster-m:8020</value>
+    <value>druid-ingestion-cluster-m:8020</value>
     <description>
       RPC address that handles all clients requests. If empty then we'll get
       thevalue from fs.default.name.The value of this property will take the
