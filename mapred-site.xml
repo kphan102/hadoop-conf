@@ -140,9 +140,10 @@
   </property>
   <property>
     <name>mapreduce.jobhistory.recovery.store.class</name>
-    <value>org.apache.hadoop.mapreduce.v2.hs.HistoryServerLeveldbStateStoreService</value>
-    <final>false</final>
-    <source>Dataproc Cluster Properties</source>
+    <value>org.apache.hadoop.mapreduce.v2.hs.HistoryServerFileSystemStateStoreService</value>
+    <description>
+      Class used to store history server state for recovery.
+    </description>
   </property>
   <property>
     <name>mapreduce.job.maps</name>
