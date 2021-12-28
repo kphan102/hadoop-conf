@@ -57,7 +57,7 @@
   </property>
   <property>
     <name>yarn.resourcemanager.bind-host</name>
-    <value>0.0.0.0</value>
+    <value>10.11.12.111</value>
   </property>
   <property>
     <description>
