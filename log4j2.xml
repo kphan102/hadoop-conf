@@ -6,10 +6,10 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="io.druid" level="debug">
+        <Logger name="org.apache.druid.jetty.RequestLog" additivity="false" level="DEBUG">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Root level="debug">
+        <Root level="warn">
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
