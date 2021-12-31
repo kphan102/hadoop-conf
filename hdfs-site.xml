@@ -21,7 +21,7 @@
   </property>
   <property>
     <name>dfs.namenode.rpc-address</name>
-    <value>druid-ingestion-cluster-m:8020</value>
+    <value>10.11.12.111:8020</value>
     <description>
       RPC address that handles all clients requests. If empty then we'll get
       thevalue from fs.default.name.The value of this property will take the
@@ -148,7 +148,7 @@
   </property>
   <property>
     <name>dfs.namenode.servicerpc-address</name>
-    <value>druid-ingestion-cluster-m:8051</value>
+    <value>10.11.12.111:8051</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
@@ -160,7 +160,7 @@
   </property>
   <property>
     <name>dfs.namenode.lifeline.rpc-address</name>
-    <value>druid-ingestion-cluster-m:8050</value>
+    <value>10.11.12.111:8050</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>
