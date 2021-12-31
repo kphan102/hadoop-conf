@@ -57,7 +57,7 @@
   </property>
   <property>
     <name>yarn.resourcemanager.scheduler.address</name>
-    <value>10.11.12.111:8030</value>
+    <value>resource_manager_host:8030</value>
   </property>
   <property>
     <name>yarn.resourcemanager.resource-tracker.address</name>
