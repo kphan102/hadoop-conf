@@ -140,7 +140,7 @@
   </property>
   <property>
     <name>mapreduce.jobhistory.recovery.store.class</name>
-    <value>org.apache.hadoop.mapreduce.v2.hs.HistoryServerFileSystemStateStoreService</value>
+    <value>org.apache.hadoop.mapreduce.v2.hs.HistoryServerLeveldbStateStoreService</value>
     <description>
       Class used to store history server state for recovery.
     </description>
