@@ -16,7 +16,7 @@
   <!-- Site specific YARN configuration properties -->
   <property>
     <name>yarn.nodemanager.remote-app-log-dir</name>
-    <value>gs://dataproc-temp-europe-west4-366312403477-2pg3cl6p/5e9d4884-77ee-4c3d-a15b-b6802f1627c2/yarn-logs</value>
+    <value>/yarn-logs/</value>
     <description>
       The remote path, on the default FS, to store logs.
     </description>
@@ -52,16 +52,12 @@
     <value>10.11.12.111</value>
   </property>
   <property>
-    <name>yarn.resourcemanager.address</name>
-    <value>10.11.12.111:8032</value>
-  </property>
-  <property>
     <name>yarn.resourcemanager.scheduler.address</name>
-    <value>10.11.12.111:8030</value>
+    <value>druid-ingestion-cluster-m:8030</value>
   </property>
   <property>
     <name>yarn.resourcemanager.resource-tracker.address</name>
-    <value>10.11.12.111:8031</value>
+    <value>druid-ingestion-cluster-m:8031</value>
   </property>
   <property>
     <name>yarn.nodemanager.vmem-check-enabled</name>
@@ -103,11 +99,8 @@
   <property>
     <name>yarn.nodemanager.resource.cpu-vcores</name>
     <value>4</value>
-    <description>
-      Number of vcores that can be allocated for containers. This is used by
-      the RM scheduler when allocating resources for containers. This is not
-      used to limit the number of physical cores used by YARN containers.
-    </description>
+    <final>false</final>
+    <source>Dataproc Cluster Properties</source>
   </property>
   <property>
     <name>yarn.resourcemanager.fs.state-store.uri</name>
@@ -126,11 +119,10 @@
   </property>
   <property>
     <name>yarn.application.classpath</name>
-    <value>$HADOOP_CONF_DIR,
-      $HADOOP_COMMON_HOME/*,$HADOOP_COMMON_HOME/lib/*,
-      $HADOOP_HDFS_HOME/*,$HADOOP_HDFS_HOME/lib/*,
-      $HADOOP_MAPRED_HOME/*,$HADOOP_MAPRED_HOME/lib/*,
-      $HADOOP_YARN_HOME/*,$HADOOP_YARN_HOME/lib/*</value>
+    <value>$HADOOP_CONF_DIR,$HADOOP_COMMON_HOME/*,$HADOOP_COMMON_HOME/lib/*,
+    $HADOOP_HDFS_HOME/*,$HADOOP_HDFS_HOME/lib/*,$HADOOP_MAPRED_HOME/*,
+    $HADOOP_MAPRED_HOME/lib/*,$HADOOP_YARN_HOME/*,$HADOOP_YARN_HOME/lib/*,
+    /usr/local/share/google/dataproc/lib/*</value>
   </property>
   <property>
     <name>yarn.resourcemanager.recovery.enabled</name>
@@ -139,7 +131,7 @@
   </property>
   <property>
     <name>yarn.log-aggregation-enable</name>
-    <value>true</value>
+    <value>false</value>
     <description>Enable remote logs aggregation to the default FS.</description>
   </property>
   <property>
@@ -164,7 +156,7 @@
   </property>
   <property>
     <name>yarn.timeline-service.hostname</name>
-    <value>10.11.12.111</value>
+    <value>druid-ingestion-cluster-m</value>
   </property>
   <property>
     <name>yarn.timeline-service.bind-host</name>
@@ -210,7 +202,7 @@
   </property>
   <property>
     <name>yarn.log.server.url</name>
-    <value>http://10.11.12.111:19888/jobhistory/logs</value>
+    <value>http://druid-ingestion-cluster-m:19888/jobhistory/logs</value>
   </property>
   <property>
     <name>yarn.log-aggregation.file-formats</name>
@@ -229,6 +221,12 @@
   <property>
     <name>yarn.resourcemanager.nodemanager-graceful-decommission-timeout-secs</name>
     <value>86400</value>
+    <final>false</final>
+    <source>Dataproc Cluster Properties</source>
+  </property>
+  <property>
+    <name>yarn.nodemanager.address</name>
+    <value>0.0.0.0:8026</value>
     <final>false</final>
     <source>Dataproc Cluster Properties</source>
   </property>

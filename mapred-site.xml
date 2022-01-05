@@ -23,7 +23,7 @@
   </property>
   <property>
     <name>mapreduce.jobhistory.address</name>
-    <value>10.11.12.111:10020</value>
+    <value>druid-ingestion-cluster-m:10020</value>
     <description>MapReduce JobHistory Server IPC host:port</description>
   </property>
   <property>
@@ -141,9 +141,8 @@
   <property>
     <name>mapreduce.jobhistory.recovery.store.class</name>
     <value>org.apache.hadoop.mapreduce.v2.hs.HistoryServerLeveldbStateStoreService</value>
-    <description>
-      Class used to store history server state for recovery.
-    </description>
+    <final>false</final>
+    <source>Dataproc Cluster Properties</source>
   </property>
   <property>
     <name>mapreduce.job.maps</name>
@@ -211,11 +210,11 @@
   </property>
   <property>
     <name>mapreduce.jobhistory.done-dir</name>
-    <value>gs://dataproc-temp-europe-west4-366312403477-2pg3cl6p/b8a85bfc-8bdd-414f-92a3-c135a4c75953/mapreduce-job-history/done</value>
+    <value>gs://dataproc-temp-europe-west4-366312403477-2pg3cl6p/1ea5039b-7bda-49ec-9ab7-3a0d171e47c0/mapreduce-job-history/done</value>
   </property>
   <property>
     <name>mapreduce.jobhistory.intermediate-done-dir</name>
-    <value>gs://dataproc-temp-europe-west4-366312403477-2pg3cl6p/b8a85bfc-8bdd-414f-92a3-c135a4c75953/mapreduce-job-history/done_intermediate</value>
+    <value>gs://dataproc-temp-europe-west4-366312403477-2pg3cl6p/1ea5039b-7bda-49ec-9ab7-3a0d171e47c0/mapreduce-job-history/done_intermediate</value>
   </property>
   <property>
     <name>mapreduce.jobhistory.move.interval-ms</name>
