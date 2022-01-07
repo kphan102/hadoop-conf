@@ -31,6 +31,18 @@
     <value>yarn</value>
   </property>
   <property>
+    <name>mapreduce.map.log.level</name>
+    <value>DEBUG</value>
+  </property>
+  <property>
+    <name>mapreduce.reduce.log.level</name>
+    <value>DEBUG</value>
+  </property>
+  <property>
+    <name>mapreduce.job.classloader</name>
+    <value>true</value>
+  </property>
+  <property>
     <name>mapreduce.fileoutputcommitter.task.cleanup.enabled</name>
     <value>true</value>
     <description>
